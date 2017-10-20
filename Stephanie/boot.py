@@ -1,3 +1,4 @@
+import gettext
 import speech_recognition as sr
 from Stephanie.activity import Activity
 from Stephanie.virtual_assistant import VirtualAssistant
@@ -5,6 +6,7 @@ from Stephanie.EventDispatcher.event_dispatcher import EventDispatcher
 from Stephanie.TextManager.text_manager import TextManager
 from Stephanie.configurer import config
 from Stephanie.updater import Updater
+from Stephanie.language import lang
 
 
 class Boot:
@@ -17,7 +19,10 @@ class Boot:
         self.updater = Updater(self.speaker)
 
     def initiate(self):
-        print("Stephanie is on and loading, wait for the beep sound to give your command.")
+        translations = gettext.translation('messages', localedir='Stephanie/locales', languages=[lang.get_code()])
+        translations.install()
+
+        print(_("Stephanie is on and loading, wait for the beep sound to give your command."))
         if self.c.config.getboolean("APPLICATION", "update_check"):
             self.updater.check_for_update()
         self.status = True
