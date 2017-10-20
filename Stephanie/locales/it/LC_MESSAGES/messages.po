@@ -1,0 +1,118 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#: src/link/to/my/src:67
+msgid ""
+msgstr ""
+"Project-Id-Version: xxx\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-07-06 12:31-0500\n"
+"PO-Revision-Date: 2011-05-27 22:37+0100\n"
+"Last-Translator: My NAME<me@mydomain.com>\n"
+"Language-Team: TEAM <team@TTEAM.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Stephanie/boot.py:25
+msgid "Stephanie is on and loading, wait for the beep sound to give your command."
+msgstr "Italian Version: Stephanie is on and loading, wait for the beep sound to give your command."
+
+#: Stephanie/AudioManager/audio_recognizer.py:16
+msgid "sphinx_audio_understood"
+msgstr "Italian Version: sphinx_audio_understood"
+
+#: Stephanie/AudioManager/audio_recognizer.py:19
+msgid "Sphinx could not understand audio"
+msgstr "Italian Version: Sphinx could not understand audio"
+
+#: Stephanie/AudioManager/audio_recognizer.py:22
+msgid "Sphinx error; {0}"
+msgstr "Italian Version: Sphinx error; {0}"
+
+#: Stephanie/AudioManager/audio_recognizer.py:31
+msgid "Google Speech Recognition thinks you said "
+msgstr "Italian Version: Google Speech Recognition thinks you said "
+
+#: Stephanie/AudioManager/audio_recognizer.py:34
+msgid "Google Recognition couldn't understand your audio with enough confidence."
+msgstr "Italian Version: Google Recognition couldn't understand your audio with enough confidence."
+
+#: Stephanie/AudioManager/audio_recognizer.py:36
+msgid "Google Speech Recognition could not understand audio"
+msgstr "Italian Version: Google Speech Recognition could not understand audio"
+
+#: Stephanie/AudioManager/audio_recognizer.py:39
+msgid "Could not request results from Google Speech Recognition service; {0}"
+msgstr "Italian Version: Could not request results from Google Speech Recognition service; {0}"
+
+#: Stephanie/AudioManager/audio_recognizer.py:47
+#: Stephanie/AudioManager/audio_recognizer.py:67
+#: Stephanie/AudioManager/audio_recognizer.py:86
+#: Stephanie/AudioManager/audio_recognizer.py:107
+#: Stephanie/AudioManager/audio_recognizer.py:129
+msgid "Api key not found in the config.ini file."
+msgstr "Italian Version: Api key not found in the config.ini file."
+
+#: Stephanie/AudioManager/audio_recognizer.py:52
+msgid "Google Cloud Speech thinks you said "
+msgstr "Italian Version: Google Cloud Speech thinks you said"
+
+#: Stephanie/AudioManager/audio_recognizer.py:55
+msgid "Google Cloud Speech could not understand audio"
+msgstr "Italian Version: Google Cloud Speech could not understand audio"
+
+#: Stephanie/AudioManager/audio_recognizer.py:58
+msgid "Could not request results from Google Cloud Speech service; {0}"
+msgstr "Italian Version: Could not request results from Google Cloud Speech service; {0}"
+
+#: Stephanie/AudioManager/audio_recognizer.py:71
+msgid "Wit.ai thinks you said "
+msgstr "Italian Version: Wit.ai thinks you said "
+
+#: Stephanie/AudioManager/audio_recognizer.py:74
+msgid "Wit.ai could not understand audio"
+msgstr "Italian Version: Wit.ai could not understand audio"
+
+#: Stephanie/AudioManager/audio_recognizer.py:77
+msgid "Could not request results from Wit.ai service; {0}"
+msgstr "Italian Version: Could not request results from Wit.ai service; {0}"
+
+#: Stephanie/AudioManager/audio_recognizer.py:90
+msgid "Microsoft Bing Voice Recognition thinks you said "
+msgstr "Italian Version: Microsoft Bing Voice Recognition thinks you said"
+
+#: Stephanie/AudioManager/audio_recognizer.py:93
+msgid "Microsoft Bing Voice Recognition could not understand audio"
+msgstr "Italian Version: Microsoft Bing Voice Recognition could not understand audio"
+
+#: Stephanie/AudioManager/audio_recognizer.py:96
+msgid "Could not request results from Microsoft Bing Voice Recognition service; {0}"
+msgstr "Italian Version: Could not request results from Microsoft Bing Voice Recognition service; {0}"
+
+#: Stephanie/AudioManager/audio_recognizer.py:112
+msgid "Houndify thinks you said "
+msgstr "Italian Version: Houndify thinks you said "
+
+#: Stephanie/AudioManager/audio_recognizer.py:115
+msgid "Houndify could not understand audio"
+msgstr "Italian Version: Houndify could not understand audio"
+
+#: Stephanie/AudioManager/audio_recognizer.py:118
+msgid "Could not request results from Houndify service; {0}"
+msgstr "Italian Version: Could not request results from Houndify service; {0}"
+
+#: Stephanie/AudioManager/audio_recognizer.py:134
+msgid "IBM Speech to Text thinks you said "
+msgstr "Italian Version: IBM Speech to Text thinks you said "
+
+#: Stephanie/AudioManager/audio_recognizer.py:137
+msgid "IBM Speech to Text could not understand audio"
+msgstr "Italian Version: IBM Speech to Text could not understand audio"
+
+#: Stephanie/AudioManager/audio_recognizer.py:140
+msgid "Could not request results from IBM Speech to Text service; {0}"
+msgstr "Italian Version: Could not request results from IBM Speech to Text service; {0}"
+
