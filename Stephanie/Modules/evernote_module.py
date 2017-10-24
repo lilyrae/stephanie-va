@@ -33,15 +33,15 @@ class EvernoteModule(BaseModule):
         try:
             created_note = self.note_store.createNote(note)  # Stores the new note in Evernote
         except:
-            response = ("Note wasn't created successfully, you probably didn't spelled anything or spelled really "
-                        "bad, Not my fault okay? It's never a program's fault.")
+            response = (_("Note wasn't created successfully, you probably didn't spelled anything or spelled really "
+                                    "bad, Not my fault okay? It's never a program's fault."))
             print(response)
             return response
         if created_note:
-            return "I successfully wrote down your note."
+            return _("I successfully wrote down your note.")
         else:
-            response = ("Note wasn't created successfully, you probably didn't spelled anything or spelled really "
-                        "bad, Not my fault okay? It's never a program's fault. /s Refer back to docs.")
+            response = (_("Note wasn't created successfully, you probably didn't spelled anything or spelled really "
+                                    "bad, Not my fault okay? It's never a program's fault. /s Refer back to docs."))
             print(response)
             return response
 

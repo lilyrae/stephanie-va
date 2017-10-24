@@ -65,30 +65,22 @@ class WeatherReportModule(BaseModule):
             temp_max = self.num_service.parseMagnitude(temp['temp_max'])
             temp_min = self.num_service.parseMagnitude(temp['temp_min'])
             curr_temp = self.num_service.parseMagnitude(temp['temp'])
-            weather_report = "Weather at " + loc + ". Today is " + stat + ". There is a chance of " \
-                             + detstat + ". Now Temperature is " + curr_temp + " degree " \
-                             + temp_unit + ". Humidity " + humi + " percent. Wind Speed " \
-                             + wind_speed + ". with cloud cover " + clou + " percent."
+            weather_report = _("Weather at {0}. Today is {1}. There is a chance of {2}. Now Temperature is {3} degree {4}. Humidity {5} percent. Wind Speed {6} with cloud cover {7} percent.").format(loc, stat, detstat, curr_temp, temp_unit, humi, wind_speed, clou);
 
         elif report == 'tomorrow':
             temp = weather.get_temperature(temp_unit)
             temp_morn = self.num_service.parseMagnitude(temp['morn'])
             temp_day = self.num_service.parseMagnitude(temp['day'])
             temp_night = self.num_service.parseMagnitude(temp['night'])
-            weather_report = "Weather at " + loc + ". Tomorrow will be " + stat + ". There will be a chance of " \
-                             + detstat + ". Temperature in the morning " + temp_morn + " degree " \
-                             + temp_unit + ". Days Temperature will be " + temp_day + " degree " \
-                             + temp_unit + ". and Temperature at night will be " + temp_night + " degree " \
-                             + temp_unit + ". Humidity " + humi + " percent. Wind Speed " \
-                             + wind_speed + ". with clouds cover " + clou + " percent."
+            weather_report = _("Weather at {0}. Tomorrow will be {1}. There will be a chance of {2}. Temperature in the morning {3} degree {4}. Days Temperature will be {5} degree {4}. and Temperature at night will be {6} degree {4}. Humidity {7} percent. Wind Speed {8} with clouds cover {9} percent.").format(loc, stat, destat, temp_morn, temp_unit, temp_day, temp_night, humi, wind_speed, clou)
 
         return weather_report
 
     def get_weather_report_weekly(self, forecast, loc, temp_unit='celsius', report='current'):
-        weather_report = "Weather forecast for next week at " + loc + ". "
+        weather_report = _("Weather forecast for next week at {0}. ").format(loc)
         rainy_days = len(forecast.when_rain())
         if rainy_days > 0:
-            rainy_days_str = "Rainy Days are. "
+            rainy_days_str = _("Rainy Days are ")
             for d in range(rainy_days):
                 rain_day = forecast.when_rain()[d].get_reference_time()
                 date_str = self.format_time_stamp(rain_day)
@@ -99,7 +91,7 @@ class WeatherReportModule(BaseModule):
 
         most_rainy = forecast.most_rainy()
         if most_rainy:
-            weather_report += "You will observe heavy rain on. "
+            weather_report += _("You will observe heavy rain on ")
             ref_time = most_rainy.get_reference_time()
             date_str = self.format_time_stamp(ref_time)
             weather_report += date_str + ". "
@@ -107,7 +99,7 @@ class WeatherReportModule(BaseModule):
 
         sunny_days = len(forecast.when_sun())
         if sunny_days > 0:
-            sunny_days_str = "Sunny Days are. "
+            sunny_days_str = _("Sunny Days are ")
             for d in range(sunny_days):
                 sunny_day = forecast.when_sun()[d].get_reference_time()
                 date_str = self.format_time_stamp(sunny_day)
@@ -118,7 +110,7 @@ class WeatherReportModule(BaseModule):
 
         most_hot = forecast.most_hot()
         if most_hot:
-            weather_report += "You will feel heat on. "
+            weather_report += _("You will feel heat on ")
             ref_time = most_hot.get_reference_time()
             date_str = self.format_time_stamp(ref_time)
             weather_report += date_str + ". "
@@ -126,7 +118,7 @@ class WeatherReportModule(BaseModule):
 
         most_windy = forecast.most_windy()
         if most_windy:
-            weather_report += "Most windy day will be. "
+            weather_report += _("Most windy day will be ")
             ref_time = most_windy.get_reference_time()
             date_str = self.format_time_stamp(ref_time)
             weather_report += date_str + ". "
@@ -134,7 +126,7 @@ class WeatherReportModule(BaseModule):
 
         most_humid = forecast.most_humid()
         if most_humid:
-            weather_report += "Most humid day will be. "
+            weather_report += _("Most humid day will be ")
             ref_time = most_humid.get_reference_time()
             date_str = self.format_time_stamp(ref_time)
             weather_report += date_str + ". "
@@ -142,7 +134,7 @@ class WeatherReportModule(BaseModule):
 
         most_cold = forecast.most_cold()
         if most_cold:
-            weather_report += "Coolest day will be. "
+            weather_report += _("Coolest day will be ")
             ref_time = most_cold.get_reference_time()
             date_str = self.format_time_stamp(ref_time)
             weather_report += date_str + ". "

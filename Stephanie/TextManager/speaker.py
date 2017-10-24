@@ -23,13 +23,13 @@ class Speaker:
             else:
                 os.system(self.speak_result)
         except:
-            print("Default Audio Player for mp3 files is not set up, like vlc or something.")
+            print(_("Default Audio Player for mp3 files is not set up, like vlc or something."))
         try:
             self.hibernate()
         except:
-            print("Seems like eyed3 named package wasn't installed probably "
-                  "Check back at the support tab in the main website. Or if you're "
-                  "trying to close the application abruptly, keep pressing CTRL + C repeatedly.")
+            print(_("Seems like eyed3 named package wasn't installed probably "
+                              "Check back at the support tab in the main website. Or if you're "
+                              "trying to close the application abruptly, keep pressing CTRL + C repeatedly."))
 
     @staticmethod
     def get_abs_filename(filename):

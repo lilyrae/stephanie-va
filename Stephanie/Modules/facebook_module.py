@@ -56,12 +56,12 @@ class FacebookModule(BaseModule):
             results = self.graph.request("me/friends",
                                          args={'fields': 'id,name,birthday'})
         except facebook.GraphAPIError:
-            response = ("I have not been authorized to query your Facebook. If you " +
-                        "would like to check birthdays in the future, please visit " +
-                        "the Jasper dashboard.")
+            response = (_("I have not been authorized to query your Facebook. If you " +
+                                    "would like to check birthdays in the future, please visit " +
+                                    "the Jasper dashboard."))
             return response
         except:
-            return "I apologize, there's a problem with that service at the moment."
+            return _("I apologize, there's a problem with that service at the moment.")
 
         needle = datetime.datetime.now(tz=pytz.utc).strftime("%m/%d")
 
@@ -75,12 +75,12 @@ class FacebookModule(BaseModule):
 
         if len(people) > 0:
             if len(people) == 1:
-                output = people[0] + " has a birthday today."
+                output = _("{0} has a birthday today.").format(people[0])
             else:
-                output = "Your friends with birthdays today are " + \
-                         ", ".join(people[:-1]) + " and " + people[-1] + "."
+                output = _("Your friends with birthdays today are ") + \
+                         ", ".join(people[:-1]) + _(" and ") + people[-1] + "."
         else:
-            output = "None of your friends have birthdays today."
+            output = _("None of your friends have birthdays today.")
 
         return output
 
@@ -100,22 +100,21 @@ class FacebookModule(BaseModule):
         try:
             results = self.graph.request("me/notifications")
         except facebook.GraphAPIError:
-            response = ("I have not been authorized to query your Facebook. If you " +
-                        "would like to check your notifications in the future, " +
-                        "please visit the Stephanie facebook module configuraton.")
+            response = (_("I have not been authorized to query your Facebook. If you " +
+                                    "would like to check your notifications in the future, " +
+                                    "please visit the Stephanie facebook module configuraton."))
             return response
         except:
-            return "I apologize, there's a problem with that service at the moment."
+            return _("I apologize, there's a problem with that service at the moment.")
         if not len(results['data']):
-            return "You have no Facebook notifications."
+            return _("You have no Facebook notifications.")
 
         updates = []
         for notification in results['data']:
             updates.append(notification['title'])
 
         count = len(results['data'])
-        response = ("You have " + str(count) +
-                    " Facebook notifications. " + " ".join(updates) + ". ")
+        response = (_("You have {0} Facebook notifications. ").format(str(count)) + " ".join(updates) + ". ")
 
         return response
 
@@ -126,9 +125,9 @@ class FacebookModule(BaseModule):
             self.graph.put_wall_post(text)
             self.assistant.say("You have successully put up a wall post.")
         except facebook.GraphAPIError:
-            response = ("I have not been authorized to query your Facebook. If you " +
-                        "would like to check your notifications in the future, " +
-                        "please visit the Stephanie facebook module configuraton.")
+            response = (_("I have not been authorized to query your Facebook. If you " +
+                            "would like to check your notifications in the future, " +
+                            "please visit the Stephanie facebook module configuraton."))
             return response
         except:
-            return "I apologize, there's a problem with that service at the moment."
+            return _("I apologize, there's a problem with that service at the moment.")

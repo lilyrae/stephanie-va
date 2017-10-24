@@ -22,7 +22,7 @@ class GmailModule(BaseModule):
             self.conn.debug = 0
             self.conn.login(self.gmail_address, self.password)
         except:
-            response = ("Either your credentials are wrong mate, or there is some problem going on, do me a favor, I know "
+            response = _("Either your credentials are wrong mate, or there is some problem going on, do me a favor, I know "
                         "you won't but whatever, just inform me in the forums.")
             print(response)
             return response
@@ -113,27 +113,25 @@ class GmailModule(BaseModule):
             num_unread, msgs = self.fetch_unread_emails(limit=5)
 
             if num_unread > 5:
-                response = "You have %d unread emails, out of which 5 latest ones are as follows, please wait a second, as I process" % num_unread
+                response = _("You have {0} unread emails, out of which 5 latest ones are as follows, please wait a second, as I process").format(num_unread)
                 self.assistant.say(response)
             senders = []
             for e in msgs:
                 senders.append(self.get_sender(e))
         except imaplib.IMAP4.error:
-            return "I'm sorry. I'm not authenticated to work with your Gmail."
+            return _("I'm sorry. I'm not authenticated to work with your Gmail.")
 
         if not senders:
-            return "You have no unread emails."
+            return _("You have no unread emails.")
         elif len(senders) == 1:
-            return "You have one unread email from " + senders[0] + "."
+            return _("You have one unread email from {0}.").format(senders[0])
         else:
-            response = "You have %d unread emails" % len(
-                senders)
+            response = _("You have {0} unread emails").format(len(senders))
             unique_senders = list(set(senders))
             if len(unique_senders) > 1:
-                unique_senders[-1] = 'and ' + unique_senders[-1]
-                response += ". Senders include: "
+                response += _(". Senders include: ")
                 response += '...'.join(senders)
             else:
-                response += " from " + unique_senders[0]
+                response += _(" from ") + unique_senders[0]
 
             return response

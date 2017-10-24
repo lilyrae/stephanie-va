@@ -15,14 +15,14 @@ class BaseModule:
         try:
             value = self.config[section][key]
         except KeyError:
-            print("API KEYS FOR '%s' is not provided in the config.ini file."
-                  " Refer back to the docs, or just add the goddamn key." % key)
+            print(_("API KEYS FOR {0} is not provided in the config.ini file."
+                              " Refer back to the docs, or just add the goddamn key.").format(key))
             return False
         if value:
             return value
-        print("The correct API KEY wasn't provided or wasn't provided at all for %s, what the ... okay man"
-              " now look back at docs to find how to do that, is pretty simple just one line long. "
-              "Lazy ass" % key)
+        print(_("The correct API KEY wasn't provided or wasn't provided at all for {0}, what the ... okay man"
+                      " now look back at docs to find how to do that, is pretty simple just one line long. "
+                      "Lazy ass").format(key))
         return False
 
     def write_configuration(self, key, value, section="MODULES"):

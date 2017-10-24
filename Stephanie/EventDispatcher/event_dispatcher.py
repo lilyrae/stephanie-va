@@ -12,12 +12,12 @@ class EventDispatcher:
 
     def sleep(self, sender):
         self.sleep_status = True
-        print("The virtual assistant is going to sleep by %s method" % sender)
+        print(_("The virtual assistant is going to sleep by {0} method").format(sender))
         return self
 
     def quit(self, sender):
         self.active_status = True
-        print("The virtual assistant is being quit by %s method" % sender)
+        print(_("The virtual assistant is being quit by {0} method").format(sender))
 
     def add(self, handle_name):
         handle_event = getattr(self, handle_name)

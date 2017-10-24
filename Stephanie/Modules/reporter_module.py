@@ -15,7 +15,7 @@ class ReporterModule(BaseModule):
             self.articles = Articles(self.API_KEY)
             self.sources = Sources(self.API_KEY)
         else:
-            print("Kindly look back at the documentation to configure news module properly especially the API keys.")
+            print(_("Kindly look back at the documentation to configure news module properly especially the API keys."))
             return False
         self.sources_url = {}
         self.sources.information()
@@ -38,40 +38,40 @@ class ReporterModule(BaseModule):
         return self.sources_url
 
     def get_news(self):
-        self.assistant.say("Would you prefer any specific category? If yes then what would it be?")
+        self.assistant.say(_("Would you prefer any specific category? If yes then what would it be?"))
         category_status = self.assistant.listen().decipher()
         if category_status.upper() in self.NEGATIVE:
             category = False
         else:
             categories = self.get_all_categories()
             category = self.search(categories, category_status)
-        self.assistant.say("Any preference you would like to have about source of your news? like CNN"
-                           "or Time magazine or maybe The hindu?")
+        self.assistant.say(_("Any preference you would like to have about source of your news? like CNN"
+                             "or Time magazine or maybe The hindu?"))
         source_status = self.assistant.listen().decipher()
         if source_status.upper() in self.NEGATIVE:
             source = False
         else:
             if category:
                 sources_available = self.get_by_category(category)
-                response = "Out of all the sources as follows"
+                response = _("Out of all the sources as follows")
                 for source_name, source_url in sources_available.items():
                     response += " %s," % source_name
-                response += ", which one would you like to pick?"
+                response += _(", which one would you like to pick?")
                 self.assistant.say(response)
                 source_command = self.assistant.listen().decipher()
                 source = self.search(list(sources_available), source_command)
             else:
-                self.assistant.say("So would you want me to list all the sources around 70 which to be"
-                                   "honest would be a hefty task, so if not, then just let me know of"
-                                   "your source name and I would let you know if it's available or not.")
+                self.assistant.say(_("So would you want me to list all the sources around 70 which to be"
+                                     "honest would be a hefty task, so if not, then just let me know of"
+                                     "your source name and I would let you know if it's available or not."))
                 all_sources_status = self.assistant.listen().decipher()
                 sources_available = self.all_sources()
                 if all_sources_status.upper() in self.AFFIRMATIVE:
-                    response = "Good job, lazy ass, so here are all the available sources as follows "
+                    response = _("Good job, lazy ass, so here are all the available sources as follows ")
                     sources_available_list = list(sources_available)
                     for source_name in sources_available_list:
                         response += " %s," % source_name
-                    response += ", which one would you like to pick?"
+                    response += _(", which one would you like to pick?)"
                     self.assistant.say(response)
                     source_command = self.assistant.listen().decipher()
                     all_sources_status = source_command
@@ -83,19 +83,19 @@ class ReporterModule(BaseModule):
                 sort_by = sort_bys_available[0]
             else:
                 if len(sort_bys_available) == 2:
-                    response = "And what kind of news sort would you like? " \
-                               "%s or %s?" % (sort_bys_available[0], sort_bys_available[1])
+                    response = _("And what kind of news sort would you like? {0} or {1}?").format(sort_bys_available[0], sort_bys_available[1])
                 else:
-                    response = "And what kind of news sort would you like? " \
-                               "%s or %s, or maybe %s?" % (sort_bys_available[0],
-                                                           sort_bys_available[1],
-                                                           sort_bys_available[2])
+                    response = _("And what kind of news sort would you like? {0} or {1}, or maybe {2}?").format(
+                        sort_bys_available[0],
+                        sort_bys_available[1],
+                        sort_bys_available[2],
+                    )
                 self.assistant.say(response)
                 sort_by_command = self.assistant.listen().decipher()
                 sort_by = self.search(sort_bys_available, sort_by_command)
         else:
-            self.assistant.say("And what kind of news sort would you like?"
-                               "latest or maybe top ones shown in front page?")
+            self.assistant.say(_("And what kind of news sort would you like?"
+                                 "latest or maybe top ones shown in front page?"))
             sort_status_command = self.assistant.listen().decipher()
             sort_by = self.search(['top', 'popular' 'latest'], sort_status_command)
         if not source:
@@ -119,15 +119,15 @@ class ReporterModule(BaseModule):
         source = source.lower().replace(" ", "-")
         articles = self.articles.get(source, sort_by=sort_by).articles
         articles = articles[:threshold]
-        response = "So the %s news from %s news source are as follows " % (sort_by, source)
+        response = _("So the {0} news from {1} news source are as follows ").format(sort_by, source)
         for article in articles:
             if article['title']:
                 response += "%s, " % article['title']
             if article['description']:
                 response += "%s, " % article['description']
             if article['author']:
-                response += "was reported by %s." % article['author']
-            response += "and in the other news. "
+                response += _("was reported by {0}.").format(article['author'])
+            response += _("and in the other news. ")
         return response
 
     @staticmethod
