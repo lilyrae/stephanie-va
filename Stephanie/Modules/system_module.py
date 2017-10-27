@@ -9,10 +9,10 @@ class SystemModule(BaseModule):
         self.gender = self.get_configuration(section="USER", key="gender")
 
     def default(self):
-        return _("Repeat back your command!.")
+        return _("command.ask_repeat")
 
     def meaning_of_life(self):
-        return _("42 is the meaning of life.")
+        return _("life.meaning")
 
     def time_right_now(self):
         t = dt.datetime.now()
@@ -27,11 +27,11 @@ class SystemModule(BaseModule):
         if self.gender:
             gender = self.gender.lower()
             if gender == "male":
-                return _("{0}, sir!").format(self.phase_of_the_day(t))
+                return _("greeting.sir").format(self.phase_of_the_day(t))
             elif gender == "female":
-                return _("{0}, mam!").format(self.phase_of_the_day(t))
+                return _("greeting.mam").format(self.phase_of_the_day(t))
             else:
-                return _("{0}, dear!").format(self.phase_of_the_day(t))
+                return _("greeting.dear").format(self.phase_of_the_day(t))
         elif self.name:
             return "{0}, {1}!".format(self.phase_of_the_day(t), self.name)
         else:
@@ -44,11 +44,11 @@ class SystemModule(BaseModule):
 
     def go_to_sleep(self):
         self.assistant.events.add("sleep").trigger("sleep")
-        return _("Sleep for the weak!")
+        return _("system.sleep")
 
     def quit(self):
         self.assistant.events.add("quit").trigger("quit")
-        return _("I will come back stronger!")
+        return _("system.quit")
 
     def tell_system_status(self):
         import psutil
@@ -63,12 +63,12 @@ class SystemModule(BaseModule):
         disk_percent = psutil.disk_usage('/')[3]
         boot_time = datetime.datetime.fromtimestamp(psutil.boot_time())
         running_since = boot_time.strftime("%A %d. %B %Y")
-        response = _("I am currently running on {0} version {1}.  ").format(os, version)
-        response += _("This system is named {0} and has {1} CPU cores.  ").format(name, cores)
-        response += _("Current disk_percent is {0} percent.  ").format(disk_percent)
-        response += _("Current CPU utilization is {0} percent.  ").format(cpu_percent)
-        response += _("Current memory utilization is {0} percent. ").format(memory_percent)
-        response += _("it's running since {0}.").format(running_since)
+        response = _("system.version").format(os, version)
+        response += _("system.name").format(name, cores)
+        response += _("system.disk_percent").format(disk_percent)
+        response += _("system.cpu").format(cpu_percent)
+        response += _("system.memory").format(memory_percent)
+        response += _("system.running_since").format(running_since)
         return response
 
     @staticmethod
@@ -108,7 +108,7 @@ class SystemModule(BaseModule):
         # hour = d[hour]
         # minute = d[minute]
 
-        return _("The time is {0} {1} {2}").format(hour, minute, phase)
+        return _("time.now").format(hour, minute, phase)
         #
         # hour = d[int(t[0:2])] if t[0:2] != "00" else d[12]
         # # suffix = 'a.m.' if d[int(t[7:9])] == hour else 'p.m.'
@@ -131,8 +131,8 @@ class SystemModule(BaseModule):
     def phase_of_the_day(time):
         hour = time.hour
         if hour < 12:
-            return _('Good Morning')
+            return _('greeting.morning')
         elif 12 <= hour < 18:
-            return _('Good Afternoon')
+            return _('greeting.afternoon')
         if hour > 6:
-            return _('Good Evening')
+            return _('greeting.evening')

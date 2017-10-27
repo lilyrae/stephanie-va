@@ -100,7 +100,7 @@ class FootballModule(BaseModule):
         text = self.assistant.listen().decipher()
         if text.upper() in self.NEGATIVE:
             self.assistant.say("Alright then blimey.")
-            return _("Alright then blimey.")
+            return _("alright.blimey")
         return False
 
     def league_specific_next_fixtures(self):
@@ -111,7 +111,7 @@ class FootballModule(BaseModule):
         text = self.assistant.listen().decipher()
         if text.upper() in self.NEGATIVE:
             self.assistant.say("Alright then blimey.")
-            return _("Alright then blimey.")
+            return _("alright.blimey")
         return False
 
     def league_specific_previous_fixtures(self):
@@ -163,7 +163,7 @@ class FootballModule(BaseModule):
         text = self.assistant.listen().decipher()
         if text.upper() in self.NEGATIVE:
             self.assistant.say("Alright then blimey.")
-            return _("Alright then blimey.")
+            return _("alright.blimey")
         return False
 
     def league_specific_news(self):
@@ -174,7 +174,7 @@ class FootballModule(BaseModule):
         text = self.assistant.listen().decipher()
         if text.upper() in self.NEGATIVE:
             self.assistant.say("Alright then blimey.")
-            return _("Alright then blimey.")
+            return _("alright.blimey")
         return False
 
     def team_specific_news(self):
@@ -185,7 +185,7 @@ class FootballModule(BaseModule):
         text = self.assistant.listen().decipher()
         if text.upper() in self.NEGATIVE:
             self.assistant.say("Alright then blimey.")
-            return _("Alright then blimey.")
+            return _("alright.blimey")
         return False
 
     def team_news(self):
@@ -196,7 +196,7 @@ class FootballModule(BaseModule):
         text = self.assistant.listen().decipher()
         if text.upper() in self.NEGATIVE:
             self.assistant.say("Alright then blimey.")
-            return _("Alright then blimey.")
+            return _("alright.blimey")
         return False
 
     def team_injury_news(self):
@@ -207,7 +207,7 @@ class FootballModule(BaseModule):
         text = self.assistant.listen().decipher()
         if text.upper() in self.NEGATIVE:
             self.assistant.say("Alright then blimey.")
-            return _("Alright then blimey.")
+            return _("alright.blimey")
         return False
 
     def team_transfer_talk(self):
@@ -218,7 +218,7 @@ class FootballModule(BaseModule):
         text = self.assistant.listen().decipher()
         if text.upper() in self.NEGATIVE:
             self.assistant.say("Alright then blimey.")
-            return _("Alright then blimey.")
+            return _("alright.blimey")
         return False
 
     def get_news(self):
@@ -229,5 +229,5 @@ class FootballModule(BaseModule):
         text = self.assistant.listen().decipher()
         if text.upper() in self.NEGATIVE:
             self.assistant.say("Alright then blimey.")
-            return _("Alright then blimey.")
+            return _("alright.blimey")
         return False

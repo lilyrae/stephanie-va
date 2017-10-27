@@ -16,27 +16,24 @@ class ZomatoModule(BaseModule):
     def handle(self):
         status = self.z.set_location(self.city)
         if not status:
-            return _("Your api key wasn't provided or maybe your city isn't available.")
+            return _("error.zomato.missing_info")
         rests = self.z.get_location_details()
         if not rests:
-            return _("No good places to eat found nearby your location.")
+            return _("restaurant.recommendation.none")
         for rest in rests:
             rest = rest['restaurant']
-            self.assistant.say(_("{0} situated nearby {1} is found, it offers cuisines like {2} "
-                                           "with an average price range of {3} {4} per person, and over {5} people have"
-                                           "rated this place with an average ratings as{6}. "
-                                           "So would you like to order this place?").format(
-                                   rest['name'],
-                                   rest['location']['locality'],
-                                   rest['cuisines'],
-                                   rest['currency'],
-                                   round(rest['average_cost_for_two'] / 2),
-                                   rest['user_rating']['votes'],
-                                   rest['user_rating']['aggregate_rating']
-                               ))
+            self.assistant.say(_("restaurant.recommendation").format(
+                rest['name'],
+                rest['location']['locality'],
+                rest['cuisines'],
+                rest['currency'],
+                round(rest['average_cost_for_two'] / 2),
+                rest['user_rating']['votes'],
+                rest['user_rating']['aggregate_rating']
+            ))
             text = self.assistant.listen().decipher()
             if text.upper() in self.AFFIRMATIVE:
                 webbrowser.open(rest['url'])
-                return _("Thank you.")
-            self.assistant.say(_("okay, then how about this one? "))
-        return _("That's all the restaurants available near your location.")
+                return _("thanks")
+            self.assistant.say(_("restaurant.recommendation.alternative"))
+        return _("restaurant.recommendation.complete")

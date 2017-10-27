@@ -22,8 +22,7 @@ class GmailModule(BaseModule):
             self.conn.debug = 0
             self.conn.login(self.gmail_address, self.password)
         except:
-            response = _("Either your credentials are wrong mate, or there is some problem going on, do me a favor, I know "
-                        "you won't but whatever, just inform me in the forums.")
+            response = _("error.gmail.access")
             print(response)
             return response
 
@@ -113,25 +112,25 @@ class GmailModule(BaseModule):
             num_unread, msgs = self.fetch_unread_emails(limit=5)
 
             if num_unread > 5:
-                response = _("You have {0} unread emails, out of which 5 latest ones are as follows, please wait a second, as I process").format(num_unread)
+                response = _("gmail.unread.latest").format(num_unread)
                 self.assistant.say(response)
             senders = []
             for e in msgs:
                 senders.append(self.get_sender(e))
         except imaplib.IMAP4.error:
-            return _("I'm sorry. I'm not authenticated to work with your Gmail.")
+            return _("error.gmail.authentication")
 
         if not senders:
-            return _("You have no unread emails.")
+            return _("gmail.unread.none")
         elif len(senders) == 1:
-            return _("You have one unread email from {0}.").format(senders[0])
+            return _("gmail.unread.one").format(senders[0])
         else:
-            response = _("You have {0} unread emails").format(len(senders))
+            response = _("gmail.unread").format(len(senders))
             unique_senders = list(set(senders))
             if len(unique_senders) > 1:
-                response += _(". Senders include: ")
+                response += _("gmail.senders")
                 response += '...'.join(senders)
             else:
-                response += _(" from ") + unique_senders[0]
+                response += _("join.from") + unique_senders[0]
 
             return response

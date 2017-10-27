@@ -21,7 +21,7 @@ class Configurer:
                 modules = json.load(file)
                 file.close()
         except Exception as e:
-            raise Exception(_("Modules.json file has been not formatted correctly. check the support tab in case you're integrating some 3rd party module.")) from e
+            raise Exception(_("error.format_modules_file")) from e
         return modules
 
     def get_modules(self, filename=None):
