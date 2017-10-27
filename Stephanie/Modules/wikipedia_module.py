@@ -11,7 +11,7 @@ class WikipediaModule(BaseModule):
 
     def give_a_summary(self):
         # Translate this \/
-        self.assistant.say(_("What would you like to know about?"))
+        self.assistant.say(_("encyclopedia.search.ask"))
         text = self.assistant.listen().decipher()
         # add beep sound
         text = text.strip().replace(" ", "%20")
@@ -33,11 +33,11 @@ class WikipediaModule(BaseModule):
                 return final
             else:
                 # Translate this \/
-                self.assistant.say(_("Sorry, I couldn't find any article with that title. :sadface:"))
+                self.assistant.say(_("encyclopedia.search.no_results"))
                 return None
             
             # handle final being None if the page wasn't found
             return final
 
         except URLError:
-            return _("Unable to search your given query.")
+            return _("error.encyclopedia.search")

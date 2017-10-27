@@ -19,13 +19,17 @@ class Boot:
         self.updater = Updater(self.speaker)
 
     def initiate(self):
-        translations = gettext.translation('messages', localedir='Stephanie/locales', languages=[lang.get_code()])
+        translations = gettext.translation(
+            'messages',
+            localedir='Stephanie/locales',
+            languages=[lang.get_code()]
+        )
         translations.install()
-        print(_("INIT_MODULES..."))
+        print(_("modules.init.start"))
         self.c.init_modules()
-        print(_("MODULES_INIT"))
+        print(_("modules.init.complete"))
 
-        print(_("Stephanie is on and loading, wait for the beep sound to give your command."))
+        print(_("stephanie.ready"))
         if self.c.config.getboolean("APPLICATION", "update_check"):
             self.updater.check_for_update()
         self.status = True

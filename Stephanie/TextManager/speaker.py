@@ -4,6 +4,7 @@ import time
 from pygame import mixer
 import platform
 
+
 class Speaker:
     def __init__(self):
         self.speak_result = ""
@@ -23,13 +24,11 @@ class Speaker:
             else:
                 os.system(self.speak_result)
         except:
-            print(_("Default Audio Player for mp3 files is not set up, like vlc or something."))
+            print(_("error.speaker.default"))
         try:
             self.hibernate()
         except:
-            print(_("Seems like eyed3 named package wasn't installed probably "
-                              "Check back at the support tab in the main website. Or if you're "
-                              "trying to close the application abruptly, keep pressing CTRL + C repeatedly."))
+            print(_("error.eyed3_package.unknown"))
 
     @staticmethod
     def get_abs_filename(filename):
@@ -40,7 +39,7 @@ class Speaker:
     def hibernate(self):
         self.audio_file = eyed3.load(self.speak_result)
         wait_period = self.audio_file.info.time_secs
-        time.sleep(wait_period+2)
+        time.sleep(wait_period + 2)
 
     def say(self, speech):
         self.speak_from_os(speech)
