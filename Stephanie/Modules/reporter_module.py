@@ -64,7 +64,7 @@ class ReporterModule(BaseModule):
                 all_sources_status = self.assistant.listen().decipher()
                 sources_available = self.all_sources()
                 if all_sources_status.upper() in self.AFFIRMATIVE:
-                    response = _("news.sources.all.ask")
+                    response = _("news.sources.all")
                     sources_available_list = list(sources_available)
                     for source_name in sources_available_list:
                         response += " %s," % source_name

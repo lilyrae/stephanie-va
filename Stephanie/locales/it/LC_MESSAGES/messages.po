@@ -3,116 +3,615 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#: src/link/to/my/src:67
 msgid ""
 msgstr ""
-"Project-Id-Version: xxx\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-06 12:31-0500\n"
-"PO-Revision-Date: 2011-05-27 22:37+0100\n"
-"Last-Translator: My NAME<me@mydomain.com>\n"
-"Language-Team: TEAM <team@TTEAM.com>\n"
+"POT-Creation-Date: 2017-10-22 14:11+0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Stephanie/boot.py:25
-msgid "Stephanie is on and loading, wait for the beep sound to give your command."
-msgstr "Italian Version: Stephanie is on and loading, wait for the beep sound to give your command."
+#: Stephanie/updater.py:18
+msgid "error.update.failed_request"
+msgstr "Impossibile accedere alle informazioni sull'aggiornamento della versione di stephanie."
+
+#: Stephanie/updater.py:22
+#, python-brace-format
+msgid "update.old_version"
+msgstr "La versione dell'assistente virtuale è {0}, mentre l'ultima è {1}"
+
+#: Stephanie/updater.py:24
+msgid "update.url"
+msgstr ""
+"Gentilmente, visita il sito Web principale di stephanie all'indirizzo www.github.com/slapbot/"
+"stephanie-va per aggiornare il software alla sua ultima versione."
+
+#: Stephanie/updater.py:32
+msgid "error.update.failed_process"
+msgstr "C'è qualche problema nel ricevere informazioni sull'aggiornamento della versione."
+
+#: Stephanie/AudioManager/audio_getter.py:17
+msgid "command.ask"
+msgstr "Dammi il tuo comando!"
+
+#: Stephanie/AudioManager/audio_getter.py:28
+msgid "command.processing"
+msgstr "Comando di elaborazione ..."
+
+#: Stephanie/AudioManager/audio_getter.py:39
+#: Stephanie/Modules/system_module.py:12
+msgid "command.ask_repeat"
+msgstr "Chiedo scusa, potresti ripetere il comando ancora una volta?"
 
 #: Stephanie/AudioManager/audio_recognizer.py:16
-msgid "sphinx_audio_understood"
-msgstr "Italian Version: sphinx_audio_understood"
+#: Stephanie/AudioManager/audio_recognizer.py:31
+#: Stephanie/AudioManager/audio_recognizer.py:52
+#: Stephanie/AudioManager/audio_recognizer.py:71
+#: Stephanie/AudioManager/audio_recognizer.py:90
+#: Stephanie/AudioManager/audio_recognizer.py:112
+#: Stephanie/AudioManager/audio_recognizer.py:134
+#, python-brace-format
+msgid "audio.repeat_input"
+msgstr "{0} pensa che tu abbia detto"
 
 #: Stephanie/AudioManager/audio_recognizer.py:19
-msgid "Sphinx could not understand audio"
-msgstr "Italian Version: Sphinx could not understand audio"
+#: Stephanie/AudioManager/audio_recognizer.py:36
+#: Stephanie/AudioManager/audio_recognizer.py:55
+#: Stephanie/AudioManager/audio_recognizer.py:74
+#: Stephanie/AudioManager/audio_recognizer.py:93
+#: Stephanie/AudioManager/audio_recognizer.py:115
+#: Stephanie/AudioManager/audio_recognizer.py:137
+#, python-brace-format
+msgid "error.audio.failed_understand"
+msgstr "{0} non ha potuto capire l'audio"
 
 #: Stephanie/AudioManager/audio_recognizer.py:22
-msgid "Sphinx error; {0}"
-msgstr "Italian Version: Sphinx error; {0}"
-
-#: Stephanie/AudioManager/audio_recognizer.py:31
-msgid "Google Speech Recognition thinks you said "
-msgstr "Italian Version: Google Speech Recognition thinks you said "
+#: Stephanie/AudioManager/audio_recognizer.py:39
+#: Stephanie/AudioManager/audio_recognizer.py:58
+#: Stephanie/AudioManager/audio_recognizer.py:77
+#: Stephanie/AudioManager/audio_recognizer.py:96
+#: Stephanie/AudioManager/audio_recognizer.py:118
+#: Stephanie/AudioManager/audio_recognizer.py:140
+#, python-brace-format
+msgid "error.audio.failed_request_service"
+msgstr "Impossibile richiedere risultati dal servizio {0}; {1}"
 
 #: Stephanie/AudioManager/audio_recognizer.py:34
-msgid "Google Recognition couldn't understand your audio with enough confidence."
-msgstr "Italian Version: Google Recognition couldn't understand your audio with enough confidence."
-
-#: Stephanie/AudioManager/audio_recognizer.py:36
-msgid "Google Speech Recognition could not understand audio"
-msgstr "Italian Version: Google Speech Recognition could not understand audio"
-
-#: Stephanie/AudioManager/audio_recognizer.py:39
-msgid "Could not request results from Google Speech Recognition service; {0}"
-msgstr "Italian Version: Could not request results from Google Speech Recognition service; {0}"
+msgid "error.audio.google_recognition.failed_understand"
+msgstr "Google Recognition non ha potuto capire il tuo audio con sufficiente sicurezza."
 
 #: Stephanie/AudioManager/audio_recognizer.py:47
 #: Stephanie/AudioManager/audio_recognizer.py:67
 #: Stephanie/AudioManager/audio_recognizer.py:86
 #: Stephanie/AudioManager/audio_recognizer.py:107
 #: Stephanie/AudioManager/audio_recognizer.py:129
-msgid "Api key not found in the config.ini file."
-msgstr "Italian Version: Api key not found in the config.ini file."
+msgid "error.missing_api_key"
+msgstr "Chiave Api non trovata nel file config.ini."
 
-#: Stephanie/AudioManager/audio_recognizer.py:52
-msgid "Google Cloud Speech thinks you said "
-msgstr "Italian Version: Google Cloud Speech thinks you said"
+#: Stephanie/configurer.py:24
+msgid "error.format_modules_file"
+msgstr ""
+"Il file Modules.json non è stato formattato correttamente, controlla la scheda di supporto in"
+"caso che stai integrando qualche modulo di terze parti."
 
-#: Stephanie/AudioManager/audio_recognizer.py:55
-msgid "Google Cloud Speech could not understand audio"
-msgstr "Italian Version: Google Cloud Speech could not understand audio"
+#: Stephanie/Modules/facebook_module.py:59
+msgid "error.facebook.access.birthdays"
+msgstr ""
+"Non sono autorizzato a interrogare il tuo Facebook. Se desideri"
+"controlla i compleanni in futuro, visita la dashboard di Jasper."
 
-#: Stephanie/AudioManager/audio_recognizer.py:58
-msgid "Could not request results from Google Cloud Speech service; {0}"
-msgstr "Italian Version: Could not request results from Google Cloud Speech service; {0}"
+#: Stephanie/Modules/facebook_module.py:64
+#: Stephanie/Modules/facebook_module.py:108
+#: Stephanie/Modules/facebook_module.py:133
+msgid "error.service.unknown"
+msgstr "Mi scuso, c'è un problema con quel servizio al momento."
 
-#: Stephanie/AudioManager/audio_recognizer.py:71
-msgid "Wit.ai thinks you said "
-msgstr "Italian Version: Wit.ai thinks you said "
+#: Stephanie/Modules/facebook_module.py:78
+#, python-brace-format
+msgid "birthday.friend.today"
+msgstr "{0} ha un compleanno oggi."
 
-#: Stephanie/AudioManager/audio_recognizer.py:74
-msgid "Wit.ai could not understand audio"
-msgstr "Italian Version: Wit.ai could not understand audio"
+#: Stephanie/Modules/facebook_module.py:80
+msgid "birthday.friends.today"
+msgstr "I tuoi amici con i compleanni oggi sono"
 
-#: Stephanie/AudioManager/audio_recognizer.py:77
-msgid "Could not request results from Wit.ai service; {0}"
-msgstr "Italian Version: Could not request results from Wit.ai service; {0}"
+#: Stephanie/Modules/facebook_module.py:81
+msgid "join.and"
+msgstr " e "
 
-#: Stephanie/AudioManager/audio_recognizer.py:90
-msgid "Microsoft Bing Voice Recognition thinks you said "
-msgstr "Italian Version: Microsoft Bing Voice Recognition thinks you said"
+#: Stephanie/Modules/facebook_module.py:83
+msgid "birthday.none.today"
+msgstr "Nessuno dei tuoi amici ha un compleanno oggi."
 
-#: Stephanie/AudioManager/audio_recognizer.py:93
-msgid "Microsoft Bing Voice Recognition could not understand audio"
-msgstr "Italian Version: Microsoft Bing Voice Recognition could not understand audio"
+#: Stephanie/Modules/facebook_module.py:103
+#: Stephanie/Modules/facebook_module.py:128
+msgid "error.facebook.access.notifications"
+msgstr ""
+"Non sono autorizzato a interrogare il tuo Facebook. Se desideri"
+"controlla le tue notifiche in futuro, visita la Stephanie facebook"
+"configurazione del modulo."
 
-#: Stephanie/AudioManager/audio_recognizer.py:96
-msgid "Could not request results from Microsoft Bing Voice Recognition service; {0}"
-msgstr "Italian Version: Could not request results from Microsoft Bing Voice Recognition service; {0}"
+#: Stephanie/Modules/facebook_module.py:110
+msgid "facebook.notifications.none"
+msgstr "Non hai notifiche di Facebook."
 
-#: Stephanie/AudioManager/audio_recognizer.py:112
-msgid "Houndify thinks you said "
-msgstr "Italian Version: Houndify thinks you said "
+#: Stephanie/Modules/facebook_module.py:117
+#, python-brace-format
+msgid "facebook.notifications"
+msgstr "Hai {0} notifiche di Facebook."
 
-#: Stephanie/AudioManager/audio_recognizer.py:115
-msgid "Houndify could not understand audio"
-msgstr "Italian Version: Houndify could not understand audio"
+#: Stephanie/Modules/gmail_module.py:25
+msgid "error.gmail.access"
+msgstr ""
+"O le tue credenziali sono accoppiamenti sbagliati, o c'è qualche problema in corso"
+"Fammi un favore, so che non lo farai ma qualunque cosa, solo informami nei forum."
 
-#: Stephanie/AudioManager/audio_recognizer.py:118
-msgid "Could not request results from Houndify service; {0}"
-msgstr "Italian Version: Could not request results from Houndify service; {0}"
+#: Stephanie/Modules/gmail_module.py:116
+#, python-brace-format
+msgid "gmail.unread.latest"
+msgstr ""
+"Hai {0} email non lette, di cui le ultime 5 sono le seguenti,"
+"per favore aspetta un secondo, mentre elaboro"
 
-#: Stephanie/AudioManager/audio_recognizer.py:134
-msgid "IBM Speech to Text thinks you said "
-msgstr "Italian Version: IBM Speech to Text thinks you said "
+#: Stephanie/Modules/gmail_module.py:122
+msgid "error.gmail.authentication"
+msgstr "Mi dispiace, non sono autenticato per lavorare con Gmail."
 
-#: Stephanie/AudioManager/audio_recognizer.py:137
-msgid "IBM Speech to Text could not understand audio"
-msgstr "Italian Version: IBM Speech to Text could not understand audio"
+#: Stephanie/Modules/gmail_module.py:125
+msgid "gmail.unread.none"
+msgstr "Non hai email non lette."
 
-#: Stephanie/AudioManager/audio_recognizer.py:140
-msgid "Could not request results from IBM Speech to Text service; {0}"
-msgstr "Italian Version: Could not request results from IBM Speech to Text service; {0}"
+#: Stephanie/Modules/gmail_module.py:127
+#, python-brace-format
+msgid "gmail.unread.one"
+msgstr "Hai un'email non letta da {0}."
 
+#: Stephanie/Modules/gmail_module.py:129
+#, python-brace-format
+msgid "gmail.unread"
+msgstr "Hai {0} email non lette"
+
+#: Stephanie/Modules/gmail_module.py:132
+msgid "gmail.senders"
+msgstr ". I mittenti includono:: "
+
+#: Stephanie/Modules/gmail_module.py:135 Stephanie/Modules/twitter_module.py:85
+msgid "join.from"
+msgstr " a partire dal "
+
+#: Stephanie/Modules/reporter_module.py:18
+msgid "error.news.configuration"
+msgstr ""
+"Si prega di consultare la documentazione per configurare correttamente il modulo di notizie"
+"Soprattutto le chiavi API."
+
+#: Stephanie/Modules/reporter_module.py:41
+msgid "news.category.ask"
+msgstr "Preferiresti una categoria specifica? Se sì, allora quale sarebbe?"
+
+#: Stephanie/Modules/reporter_module.py:48
+msgid "news.sources.ask"
+msgstr ""
+"Hai qualche preferenza per la fonte delle tue notizie? Come CNNor"
+"Time magazine o forse The indù?"
+
+#: Stephanie/Modules/reporter_module.py:56
+msgid "news.sources.list"
+msgstr "Tra tutte le fonti come segue"
+
+#: Stephanie/Modules/reporter_module.py:59
+#: Stephanie/Modules/reporter_module.py:74
+msgid "news.sources.select"
+msgstr ", quale ti piacerebbe scegliere?"
+
+#: Stephanie/Modules/reporter_module.py:64
+msgid "news.sources.all.ask"
+msgstr ""
+"Vuoi che elenchi tutte le fonti? Ci sono circa 70 quindi potrebbe volerci"
+"un po 'o puoi farmi sapere il tuo nome sorgente preferito"
+"e ti farei sapere se è disponibile o meno."
+
+#: Stephanie/Modules/reporter_module.py:70
+msgid "news.sources.all"
+msgstr "Nessun problema, qui ci sono tutte le fonti disponibili come segue"
+
+#: Stephanie/Modules/reporter_module.py:86
+#, python-brace-format
+msgid "news.sort.two_options"
+msgstr "E che tipo di notizie vorresti? {0} o {1}?"
+
+#: Stephanie/Modules/reporter_module.py:88
+#, python-brace-format
+msgid "news.sort.three_options"
+msgstr "E che tipo di notizie vorresti? {0} o {1}, o forse {2}?"
+
+#: Stephanie/Modules/reporter_module.py:97
+msgid "news.sort.described_options"
+msgstr ""
+"E che tipo di notizie vorresti? Le ultime o forse le migliori in"
+"prima pagina?"
+
+#: Stephanie/Modules/reporter_module.py:122
+#, python-brace-format
+msgid "news.report"
+msgstr "Quindi le {0} notizie dalla {1} fonte di notizie sono le seguenti"
+
+#: Stephanie/Modules/reporter_module.py:129
+#, python-brace-format
+msgid "news.report.by"
+msgstr "è stato segnalato da {0}."
+
+#: Stephanie/Modules/reporter_module.py:130
+msgid "news.report.continue"
+msgstr "e nelle altre notizie. "
+
+#: Stephanie/Modules/google_calendar_module.py:124
+msgid "calendar.add.successful"
+msgstr "Ok, l'ho aggiunto al tuo calendario"
+
+#: Stephanie/Modules/google_calendar_module.py:154
+msgid "calendar.events.today.none"
+msgstr "Non ci sono eventi in programma per oggi"
+
+#: Stephanie/Modules/google_calendar_module.py:220
+msgid "calendar.events.tomorrow.none"
+msgstr "Non ci sono eventi in programma per domani"
+
+#: Stephanie/Modules/google_calendar_module.py:253
+msgid "complete"
+msgstr "Questo è tutto."
+
+#: Stephanie/Modules/alpha_search_module.py:26
+msgid "rephrase.ask"
+msgstr "Puoi forse esprimerlo un po 'meglio?"
+
+#: Stephanie/Modules/alpha_search_module.py:31
+msgid "error.search.no_results"
+msgstr ""
+"Scusa, non sono riuscito a trovare quello che hai chiesto, magari provare ad essere un po 'più"
+"specifica."
+
+#: Stephanie/Modules/alpha_search_module.py:33
+msgid "error.search.wolframalpha"
+msgstr ""
+"Sembra che ci sia qualcosa di sbagliato nel motore di ricerca wolframalpha, magari provare"
+"chiedendo dopo."
+
+#: Stephanie/Modules/alpha_search_module.py:35
+msgid "error.search.no_api_token"
+msgstr ""
+"Sembra che tu non abbia fornito l'API TOKEN per il motore di ricerca, per favore aggiungilo in"
+"file di configurazione."
+
+#: Stephanie/Modules/alpha_search_module.py:36
+msgid "error.search.wolframalpha.no_api_token"
+msgstr ""
+"Manca API TOKEN per il motore di ricerca wolframalpha, visita i documenti per vedere"
+"come compilare correttamente le configurazioni per il motore di ricerca."
+
+#: Stephanie/Modules/alpha_search_module.py:38
+msgid "error.search.incorrect_api_token"
+msgstr ""
+"Sembra che tu non abbia fornito l'API TOKEN o che sia sbagliato per il motore di ricerca"
+"per favore aggiungilo nel file di configurazione."
+
+#: Stephanie/Modules/alpha_search_module.py:39
+msgid "error.search.wolframalpha.incorrect_api_token"
+msgstr ""
+"API TOKEN per il motore di ricerca wolframalpha manca o non è valido, vai avanti"
+"a documenti per vedere come riempire correttamente le configurazioni per il motore di ricerca."
+
+#: Stephanie/Modules/evernote_module.py:36
+#: Stephanie/Modules/evernote_module.py:43
+msgid "error.note.create"
+msgstr ""
+"La nota non è stata creata correttamente. Potrebbe essersi verificato un errore di ortografia ... Per favore"
+"rimandi ai documenti."
+
+#: Stephanie/Modules/evernote_module.py:41
+msgid "note.create.success"
+msgstr "Ho scritto con successo il tuo messaggio."
+
+#: Stephanie/Modules/movie_information_module.py:17
+#, python-brace-format
+msgid "movie.ask_confirmation"
+msgstr "Il film ti stai riferendo a {0}, pubblicato in {1}"
+
+#: Stephanie/Modules/movie_information_module.py:20
+#, python-brace-format
+msgid "movie.suggest"
+msgstr "Va bene, allora che ne dici di {0}, rilasciato in {1}"
+
+#: Stephanie/Modules/movie_information_module.py:25
+msgid "movie.moody"
+msgstr "Va bene amico, sei un po 'lunatico."
+
+#: Stephanie/Modules/movie_information_module.py:28
+msgid "found"
+msgstr "trovato"
+
+#: Stephanie/Modules/movie_information_module.py:31
+msgid "movie.ask_repeat"
+msgstr "Scusa, ma la tua pronuncia è orribile. Prova ancora"
+
+#: Stephanie/Modules/movie_information_module.py:36
+#, python-brace-format
+msgid "movie.report"
+msgstr ""
+"{0} è stato rilasciato in {1}, diretto da {2} di genere {3} ha un runtime di circa"
+"{4} ha ottenuto una valutazione di {5} con {6} ha avuto una trama come {7}"
+
+#: Stephanie/Modules/system_module.py:15
+msgid "life.meaning"
+msgstr "42 è il significato della vita."
+
+#: Stephanie/Modules/system_module.py:30
+#, python-brace-format
+msgid "greeting.sir"
+msgstr "{0}, signore!"
+
+#: Stephanie/Modules/system_module.py:32
+#, python-brace-format
+msgid "greeting.mam"
+msgstr "{0}, mamma!"
+
+#: Stephanie/Modules/system_module.py:34
+#, python-brace-format
+msgid "greeting.dear"
+msgstr "{0}, caro!"
+
+#: Stephanie/Modules/system_module.py:47
+msgid "system.sleep"
+msgstr "Dormire è per i deboli!"
+
+#: Stephanie/Modules/system_module.py:51
+msgid "system.quit"
+msgstr "Tornerò più forte!"
+
+#: Stephanie/Modules/system_module.py:66
+#, python-brace-format
+msgid "system.version"
+msgstr "Attualmente sto girando su {0} versione {1}. "
+
+#: Stephanie/Modules/system_module.py:67
+#, python-brace-format
+msgid "system.name"
+msgstr "Questo sistema è chiamato {0} e ha {1} core della CPU. "
+
+#: Stephanie/Modules/system_module.py:68
+#, python-brace-format
+msgid "system.disk_percent"
+msgstr "L'attuale spesa del disco è {0} percento. "
+
+#: Stephanie/Modules/system_module.py:69
+#, python-brace-format
+msgid "system.cpu"
+msgstr "L'utilizzo attuale della CPU è {0} percento. "
+
+#: Stephanie/Modules/system_module.py:70
+#, python-brace-format
+msgid "system.memory"
+msgstr "L'utilizzo della memoria corrente è {0} percento."
+
+#: Stephanie/Modules/system_module.py:71
+#, python-brace-format
+msgid "system.running_since"
+msgstr "è in esecuzione dal {0}."
+
+#: Stephanie/Modules/system_module.py:111
+#, python-brace-format
+msgid "time.now"
+msgstr "Il tempo è {0} {1} {2}"
+
+#: Stephanie/Modules/system_module.py:134
+msgid "greeting.morning"
+msgstr "Buongiorno"
+
+#: Stephanie/Modules/system_module.py:136
+msgid "greeting.afternoon"
+msgstr "Buon pomeriggio"
+
+#: Stephanie/Modules/system_module.py:138
+msgid "greeting.evening"
+msgstr "Buona serata"
+
+#: Stephanie/Modules/zomato_module.py:19
+msgid "error.zomato.missing_info"
+msgstr "La tua chiave APi non è stata fornita o forse la tua città non è disponibile."
+
+#: Stephanie/Modules/zomato_module.py:22
+msgid "restaurant.recommendation.none"
+msgstr "Nessun buon posto dove mangiare trovato nelle vicinanze della tua posizione."
+
+#: Stephanie/Modules/zomato_module.py:25
+#, python-brace-format
+msgid "restaurant.recommendation"
+msgstr ""
+"{0} situato nelle vicinanze {1} è trovato, offre cucine come {2} con un"
+"fascia di prezzo medio di {3} {4} a persona e oltre {5} persone haverato"
+"questo posto con una valutazione media come {6}. Quindi ti piacerebbe ordinare questo"
+"posto?"
+
+#: Stephanie/Modules/zomato_module.py:40
+msgid "thanks"
+msgstr "Grazie."
+
+#: Stephanie/Modules/zomato_module.py:41
+msgid "restaurant.recommendation.alternative"
+msgstr "okay, allora che ne dici di questo? "
+
+#: Stephanie/Modules/zomato_module.py:42
+msgid "restaurant.recommendation.complete"
+msgstr "Sono tutti ristoranti disponibili vicino alla tua posizione."
+
+#: Stephanie/Modules/twitter_module.py:42
+msgid "twitter.trends.top"
+msgstr "Queste sono state le prime 5 tendenze su twitter a livello globale."
+
+#: Stephanie/Modules/twitter_module.py:45
+msgid "twitter.tweet.ask"
+msgstr "Cosa ti piacerebbe twittare?"
+
+#: Stephanie/Modules/twitter_module.py:48
+#, python-brace-format
+msgid "twitter.tweet.successful"
+msgstr "{0} è stato twittato"
+
+#: Stephanie/Modules/twitter_module.py:75
+msgid "twitter.retweets"
+msgstr "Gli ultimi retweet sono"
+
+#: Stephanie/Modules/twitter_module.py:77
+msgid "join.by"
+msgstr " di "
+
+#: Stephanie/Modules/twitter_module.py:79
+msgid "twitter.retweets.none"
+msgstr "Non hai re-tweets. "
+
+#: Stephanie/Modules/twitter_module.py:82
+msgid "twitter.mentions.latest"
+msgstr "Le ultime menzioni sono "
+
+#: Stephanie/Modules/twitter_module.py:88
+msgid "twitter.mentions.none"
+msgstr "Non hai menzioni."
+
+#: Stephanie/Modules/twitter_module.py:98
+msgid "twitter.notifications.latest"
+msgstr "Queste erano le ultime notifiche."
+
+#: Stephanie/Modules/football_module.py:103
+#: Stephanie/Modules/football_module.py:114
+#: Stephanie/Modules/football_module.py:166
+#: Stephanie/Modules/football_module.py:177
+#: Stephanie/Modules/football_module.py:188
+#: Stephanie/Modules/football_module.py:199
+#: Stephanie/Modules/football_module.py:210
+#: Stephanie/Modules/football_module.py:221
+#: Stephanie/Modules/football_module.py:232
+msgid "alright.blimey"
+msgstr "Va bene, allora, bliney."
+
+#: Stephanie/Modules/weather_report_module.py:68
+#, python-brace-format
+msgid "weather.today"
+msgstr ""
+"Meteo a {0}. Oggi è {1}. C'è una possibilità di {2}. Ora la temperatura è"
+"{3} degree {4}. Umidità {5} percento Velocità del vento {6} con copertura nuvolosa {7}"
+"per cento."
+
+#: Stephanie/Modules/weather_report_module.py:75
+#, python-brace-format
+msgid "weather.tomorrow"
+msgstr ""
+"Meteo a {0}. Domani sarà {1}. Ci sarà la possibilità di {2}."
+"Temperatura al mattino {3} laurea {4}. La temperatura dei giorni sarà {5}"
+"grado {4} e temperatura di notte sarà {6} grado {4}. Umidità {7}"
+"Percentuale: velocità del vento {8} con copertura delle nuvole {9} percento."
+
+#: Stephanie/Modules/weather_report_module.py:80
+#, python-brace-format
+msgid "weather.next_week"
+msgstr "Previsioni del tempo per la prossima settimana a {0}. "
+
+#: Stephanie/Modules/weather_report_module.py:83
+msgid "weather.rain.days"
+msgstr "I giorni di pioggia sono "
+
+#: Stephanie/Modules/weather_report_module.py:94
+msgid "weather.rain.most"
+msgstr "Osserverai la pioggia battente su "
+
+#: Stephanie/Modules/weather_report_module.py:102
+msgid "weather.sun.days"
+msgstr "I giorni di sole sono "
+
+#: Stephanie/Modules/weather_report_module.py:113
+msgid "weather.sun.most"
+msgstr "Sentirai calore "
+
+#: Stephanie/Modules/weather_report_module.py:121
+msgid "weather.wind.day"
+msgstr "La giornata più ventosa sarà "
+
+#: Stephanie/Modules/weather_report_module.py:129
+msgid "weather.humid.day"
+msgstr "Il giorno più umido sarà "
+
+#: Stephanie/Modules/weather_report_module.py:137
+msgid "weather.cold.day"
+msgstr "La giornata più bella sarà "
+
+#: Stephanie/Modules/wikipedia_module.py:14
+msgid "encyclopedia.search.ask"
+msgstr "Cosa ti piacerebbe sapere?"
+
+#: Stephanie/Modules/wikipedia_module.py:36
+msgid "encyclopedia.search.no_results"
+msgstr "Scusa, non ho trovato nessun articolo con quel titolo. :sadface:"
+
+#: Stephanie/Modules/wikipedia_module.py:43
+msgid "error.encyclopedia.search"
+msgstr "Impossibile cercare la query fornita."
+
+#: Stephanie/Modules/base_module.py:18
+#, python-brace-format
+msgid "error.no_api_keys"
+msgstr "Le chiavi API per {0} non sono state fornite nel file config.ini. Fai riferimento ai documenti."
+
+#: Stephanie/Modules/base_module.py:23
+#, python-brace-format
+msgid "error.incorrect_api_keys"
+msgstr "La chiave API non era corretta o non è stata fornita affatto per {0}. Fai riferimento ai documenti."
+
+#: Stephanie/TextManager/speaker.py:26
+msgid "error.speaker.default"
+msgstr "Default Audio Player per file mp3 non è impostato, come vlc o qualcosa del genere."
+
+#: Stephanie/TextManager/speaker.py:30
+msgid "error.eyed3_package.unknown"
+msgstr ""
+"Sembra che il pacchetto con nome eyed3 non sia stato installato probabilmente Controlla indietro al"
+"scheda di supporto nel sito Web principale o se stai cercando di chiudere il"
+"Improvvisamente, continua a premere CTRL + C ripetutamente."
+
+#: Stephanie/TextManager/text_manager.py:18
+msgid "error.google_text.unknown"
+msgstr ""
+"Qualche problema con il meccanismo di sintesi vocale di google, passa ad un altro"
+"servizio, oppure puoi aspettare e provare a spegnerlo e riaccenderlo."
+
+#: Stephanie/TextManager/text_manager.py:30
+msgid "error.google_text.save"
+msgstr ""
+"Guarda che non dovrebbe succedere ma da quando è successo, vai nella scheda di supporto di"
+"compagno di sito principale, qualche problema con os è quello che presumo a meno che tu non abbia"
+"ha cambiato codice se in quel caseman, beh."
+
+#: Stephanie/EventDispatcher/event_dispatcher.py:15
+#, python-brace-format
+msgid "virtual_assistant.sleep"
+msgstr "L'assistente virtuale sta andando a dormire con il metodo {0}"
+
+#: Stephanie/EventDispatcher/event_dispatcher.py:20
+#, python-brace-format
+msgid "virtual_assistant.quit"
+msgstr "L'assistente virtuale viene chiuso con il metodo {0}"
+
+#: Stephanie/boot.py:24
+msgid "modules.init.start"
+msgstr "I moduli vengono inizializzati..."
+
+#: Stephanie/boot.py:26
+msgid "modules.init.complete"
+msgstr "I moduli sono stati inizializzati."
+
+#: Stephanie/boot.py:28
+msgid "stephanie.ready"
+msgstr "Stephanie è acceso e in fase di caricamento, aspetta che venga emesso il segnale acustico."

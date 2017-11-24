@@ -3,6 +3,8 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+msgid ""
+msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-22 14:11+0700\n"
@@ -11,7 +13,7 @@
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: Stephanie/updater.py:18
@@ -215,7 +217,7 @@ msgstr ""
 "and I would let you know if it's available or not."
 
 #: Stephanie/Modules/reporter_module.py:70
-msgid "news.sources.all.ask"
+msgid "news.sources.all"
 msgstr "No problem, here are all the available sources as follows "
 
 #: Stephanie/Modules/reporter_module.py:86
@@ -270,6 +272,7 @@ msgstr "Can you possibly phrase it a bit better?"
 
 #: Stephanie/Modules/alpha_search_module.py:31
 msgid "error.search.no_results"
+msgstr ""
 "Sorry, I couldn't find what you asked for, maybe try being a little more "
 "specific."
 
@@ -281,9 +284,9 @@ msgstr ""
 
 #: Stephanie/Modules/alpha_search_module.py:35
 msgid "error.search.no_api_token"
+msgstr ""
 "Seems you haven't provided the API TOKEN for search engine, please add it in "
 "config file."
-msgstr ""
 
 #: Stephanie/Modules/alpha_search_module.py:36
 msgid "error.search.wolframalpha.no_api_token"
