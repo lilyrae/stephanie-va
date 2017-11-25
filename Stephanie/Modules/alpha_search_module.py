@@ -23,18 +23,18 @@ class AlphaSearchModule(BaseModule):
             elif raw_text_array[i] == "search":
                 status = True
         if status is False:
-            return "Can you possibly phrase it a bit better?"
+            return _("rephrase.ask")
         phrase = phrase.strip()
         try:
             text = self.client.search(phrase)
         except ConfidenceError:
-            return "Sorry, I couldn't find what you asked for, maybe try being a little more specific."
+            return _("error.search.no_results")
         except InternalError:
-            return "It seems something is wrong with the wolframalpha search engine, maybe try asking later."
+            return _("error.search.wolframalpha")
         except MissingTokenError:
-            return "Seems you haven't provided the API TOKEN for search engine, please add it in config file."
-            print("API TOKEN for wolframalpha search engine is missing, head in to docs to see how to properly fill the configurations for search engine.")
+            return _("error.search.no_api_token")
+            print(_("error.search.wolframalpha.no_api_token"))
         except InvalidTokenError:
-            return "Seems you haven't provided the API TOKEN or it's wrong for search engine, please add it in config file."
-            print("API TOKEN for wolframalpha search engine is missing or is invalid, head in to docs to see how to properly fill the configurations for search engine.")
+            return _("error.search.incorrect_api_token")
+            print(_("error.search.wolframalpha.incorrect_api_token"))
         return text

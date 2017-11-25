@@ -9,10 +9,10 @@ class SystemModule(BaseModule):
         self.gender = self.get_configuration(section="USER", key="gender")
 
     def default(self):
-        return "Repeat back your command!."
+        return _("command.ask_repeat")
 
     def meaning_of_life(self):
-        return "42 is the meaning of life."
+        return _("life.meaning")
 
     def time_right_now(self):
         t = dt.datetime.now()
@@ -27,15 +27,15 @@ class SystemModule(BaseModule):
         if self.gender:
             gender = self.gender.lower()
             if gender == "male":
-                return "%s, sir!" % self.phase_of_the_day(t)
+                return _("greeting.sir").format(self.phase_of_the_day(t))
             elif gender == "female":
-                return "%s, sir!" % self.phase_of_the_day(t)
+                return _("greeting.mam").format(self.phase_of_the_day(t))
             else:
-                return "%s, sir!" % self.phase_of_the_day(t)
+                return _("greeting.dear").format(self.phase_of_the_day(t))
         elif self.name:
-            return "%s, %s!" % (self.phase_of_the_day(t), self.name)
+            return "{0}, {1}!".format(self.phase_of_the_day(t), self.name)
         else:
-            return "%s!" % self.phase_of_the_day(t)
+            return "{0}!".format(self.phase_of_the_day(t))
     # Example to access assistant instance
     # def wake_up(self):
     #     self.assistant.say("What time is it again?")
@@ -44,11 +44,11 @@ class SystemModule(BaseModule):
 
     def go_to_sleep(self):
         self.assistant.events.add("sleep").trigger("sleep")
-        return "Sleep for the weak!"
+        return _("system.sleep")
 
     def quit(self):
         self.assistant.events.add("quit").trigger("quit")
-        return "I will come back stronger!"
+        return _("system.quit")
 
     def tell_system_status(self):
         import psutil
@@ -63,12 +63,12 @@ class SystemModule(BaseModule):
         disk_percent = psutil.disk_usage('/')[3]
         boot_time = datetime.datetime.fromtimestamp(psutil.boot_time())
         running_since = boot_time.strftime("%A %d. %B %Y")
-        response = "I am currently running on %s version %s.  " % (os, version)
-        response += "This system is named %s and has %s CPU cores.  " % (name, cores)
-        response += "Current disk_percent is %s percent.  " % disk_percent
-        response += "Current CPU utilization is %s percent.  " % cpu_percent
-        response += "Current memory utilization is %s percent. " % memory_percent
-        response += "it's running since %s." % running_since
+        response = _("system.version").format(os, version)
+        response += _("system.name").format(name, cores)
+        response += _("system.disk_percent").format(disk_percent)
+        response += _("system.cpu").format(cpu_percent)
+        response += _("system.memory").format(memory_percent)
+        response += _("system.running_since").format(running_since)
         return response
 
     @staticmethod
@@ -108,7 +108,7 @@ class SystemModule(BaseModule):
         # hour = d[hour]
         # minute = d[minute]
 
-        return "The time is %s %s %s" % (hour, minute, phase)
+        return _("time.now").format(hour, minute, phase)
         #
         # hour = d[int(t[0:2])] if t[0:2] != "00" else d[12]
         # # suffix = 'a.m.' if d[int(t[7:9])] == hour else 'p.m.'
@@ -131,8 +131,8 @@ class SystemModule(BaseModule):
     def phase_of_the_day(time):
         hour = time.hour
         if hour < 12:
-            return 'Good Morning'
+            return _('greeting.morning')
         elif 12 <= hour < 18:
-            return 'Good Afternoon'
+            return _('greeting.afternoon')
         if hour > 6:
-            return 'Good Evening'
+            return _('greeting.evening')

@@ -8,16 +8,13 @@ class AudioGetter:
         self.r = recognizer
         self.c = config
         self.speaker = Speaker()
-        self.start_text = self.c.config['LOGS']['start_text']
-        self.listened_success_text = self.c.config['LOGS']['listened_success_text']
-        self.listened_error_text = self.c.config['LOGS']['listened_error_text']
         self.speech_directory = self.c.config['CORE']['speech_directory']
         self.beep_start = self.get_speeches_folder(self.c.config['CORE']['beep_start'])
         self.beep_end = self.get_speeches_folder(self.c.config['CORE']['beep_end'])
         self.tts_option = self.c.config['TTS']['tts_player'].lower()
 
     def get_audio_from_inbuilt(self, source, signals=True):
-        print(self.start_text)
+        print(_("command.ask"))
         try:
             if signals:
                 if self.tts_option == "os":
@@ -28,7 +25,7 @@ class AudioGetter:
                     raise AssertionError("Fill in the tts_player option in config.ini file as either os or mixer.")
             self.r.adjust_for_ambient_noise(source, duration=1)
             audio = self.r.listen(source)
-            print(self.listened_success_text)
+            print(_("command.processing"))
             if signals:
                 if self.tts_option == "os":
                     self.speaker.speak_from_os(self.beep_end)
@@ -39,7 +36,7 @@ class AudioGetter:
             return audio
         except AssertionError as e:
             print(e)
-            print(self.listened_error_text)
+            print(_("command.ask_repeat"))
             return False
 
     def listen(self, source, signals=True):

@@ -15,8 +15,7 @@ class TextManager:
             try:
                 self.text_recognizer.recognize_from_google(text)
             except:
-                print("Some issue with google text to speech mechanism, change to some other service."
-                      " Or just wait for some time mate, turning off and on do magic sometimes too.")
+                print(_("error.google_text.unknown"))
             return self
         else:
             raise Exception("Man, did you mess up with tts_engine setting? Yes you did, don't lie to me"
@@ -27,9 +26,7 @@ class TextManager:
         try:
             return self.text_recognizer.save_speech_from_google()
         except:
-            print("Look it shouldn't happen but since it happened, just get to support tab of main website mate,"
-                  " some issue with os is what I assume unless you haven't changed code if in that case"
-                  "man, well.")
+            print(_("error.google_text.save"))
 
     def speak_result(self, speech_result_filename):
         option = self.c.config['TTS']['tts_player'].lower()

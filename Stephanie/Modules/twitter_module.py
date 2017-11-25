@@ -39,13 +39,13 @@ class TwitterModule(BaseModule):
                 name = trend['name']  # Grabs name of each trend
                 if name.startswith('#'):
                     self.assistant.say(name)  # Only grabs hashtags
-        return "these were the top 5 trends on twitter globally."
+        return _("twitter.trends.top")
 
     def status_update(self):
-        self.assistant.say("What would you like to tweet?")
+        self.assistant.say(_("twitter.tweet.ask"))
         tweet = self.assistant.listen().decipher()
         self.api.update_status(tweet)
-        return "%s has been tweeted" % tweet
+        return _("twitter.tweet.successful").format(tweet)
 
     def get_notifications(self):
         latest_retweets = []
@@ -72,28 +72,20 @@ class TwitterModule(BaseModule):
         #     latest_direct_messages_id.append(directMessage.id)
         response = ""
         if len(latest_retweets) > 0:
-            response += "Latest Retweets are "
+            response += _("twitter.retweets")
             for retweetFinal in latest_retweets:
-                response += (retweetFinal.text + " by " + retweetFinal.user.screen_name + ". ")
+                response += (retweetFinal.text + _("join.by") + retweetFinal.user.screen_name + ". ")
         else:
-            response += ("You have no re-tweets. ")
+            response += _("twitter.retweets.none")
 
         if len(latest_mentions) > 0:
-            response += ("Latest Mentions are ")
+            response += _("twitter.mentions.latest")
 
             for mentionFinal in latest_mentions:
-                response += (mentionFinal.text + " from " + mentionFinal.user.screen_name + ". ")
+                response += (mentionFinal.text + _("join.from") + mentionFinal.user.screen_name + ". ")
 
         else:
-            response += ("You have no mentions. ")
+            response += _("twitter.mentions.none")
 
-        # if len(latest_direct_messages) > 0:
-        #     self.assistant.say("Latest Direct Messages are")
-        #
-        #     for directMessageFinal in latest_direct_messages:
-        #         self.assistant.say(directMessageFinal.text + " from " + directMessageFinal.user.screen_name)
-        #
-        # else:
-        #     self.assistant.say("You have no Direct Messages")
-        response += "These were the latest notifications."
+        response += _("twitter.notifications.latest")
         return response

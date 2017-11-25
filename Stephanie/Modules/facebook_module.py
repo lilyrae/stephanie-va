@@ -56,12 +56,10 @@ class FacebookModule(BaseModule):
             results = self.graph.request("me/friends",
                                          args={'fields': 'id,name,birthday'})
         except facebook.GraphAPIError:
-            response = ("I have not been authorized to query your Facebook. If you " +
-                        "would like to check birthdays in the future, please visit " +
-                        "the Jasper dashboard.")
+            response = (_("error.facebook.access.birthdays"))
             return response
         except:
-            return "I apologize, there's a problem with that service at the moment."
+            return _("error.service.unknown")
 
         needle = datetime.datetime.now(tz=pytz.utc).strftime("%m/%d")
 
@@ -75,12 +73,11 @@ class FacebookModule(BaseModule):
 
         if len(people) > 0:
             if len(people) == 1:
-                output = people[0] + " has a birthday today."
+                output = _("birthday.friend.today").format(people[0])
             else:
-                output = "Your friends with birthdays today are " + \
-                         ", ".join(people[:-1]) + " and " + people[-1] + "."
+                output = _("birthday.friends.today") + ", ".join(people[:-1]) + _("join.and") + people[-1] + "."
         else:
-            output = "None of your friends have birthdays today."
+            output = _("birthday.none.today")
 
         return output
 
@@ -100,22 +97,19 @@ class FacebookModule(BaseModule):
         try:
             results = self.graph.request("me/notifications")
         except facebook.GraphAPIError:
-            response = ("I have not been authorized to query your Facebook. If you " +
-                        "would like to check your notifications in the future, " +
-                        "please visit the Stephanie facebook module configuraton.")
+            response = (_("error.facebook.access.notifications"))
             return response
         except:
-            return "I apologize, there's a problem with that service at the moment."
+            return _("error.service.unknown")
         if not len(results['data']):
-            return "You have no Facebook notifications."
+            return _("facebook.notifications.none")
 
         updates = []
         for notification in results['data']:
             updates.append(notification['title'])
 
         count = len(results['data'])
-        response = ("You have " + str(count) +
-                    " Facebook notifications. " + " ".join(updates) + ". ")
+        response = (_("facebook.notifications").format(str(count)) + " ".join(updates) + ". ")
 
         return response
 
@@ -126,9 +120,7 @@ class FacebookModule(BaseModule):
             self.graph.put_wall_post(text)
             self.assistant.say("You have successully put up a wall post.")
         except facebook.GraphAPIError:
-            response = ("I have not been authorized to query your Facebook. If you " +
-                        "would like to check your notifications in the future, " +
-                        "please visit the Stephanie facebook module configuraton.")
+            response = (_("error.facebook.access.notifications"))
             return response
         except:
-            return "I apologize, there's a problem with that service at the moment."
+            return _("error.service.unknown")

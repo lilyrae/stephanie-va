@@ -121,7 +121,7 @@ class GoogleCalendarModule(BaseModule):
                 user_response = self.assistant.listen().decipher()
 
                 if bool(re.search('Yes', user_response, re.IGNORECASE)):
-                    return "Okay, I added it to your calendar"
+                    return _("calendar.add.successful")
 
                 self.service.events().delete(calendarId='primary', eventId=created_event['id']).execute()
 
@@ -151,7 +151,7 @@ class GoogleCalendarModule(BaseModule):
                                                       timeMin=today_start_time, timeMax=today_end_time).execute()
 
             if len(events_found['items']) == 0:
-                return "You have no events scheduled for today"
+                return _("calendar.events.today.none")
 
             for event_found in events_found['items']:
 
@@ -217,7 +217,7 @@ class GoogleCalendarModule(BaseModule):
                 timeMax=tomorrow_end_time
             ).execute()
             if len(events['items']) == 0:
-                return "You have no events scheduled Tomorrow"
+                return _("calendar.events.tomorrow.none")
 
             for event in events['items']:
 
@@ -250,4 +250,4 @@ class GoogleCalendarModule(BaseModule):
             page_token = events.get('nextPageToken')
 
             if not page_token:
-                return "That's it."
+                return _("complete")

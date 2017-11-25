@@ -2,6 +2,7 @@ from urllib.request import Request, urlopen
 from urllib.error import URLError
 import json
 from Stephanie.Modules.base_module import BaseModule
+from Stephanie.language import lang
 
 
 class WikipediaModule(BaseModule):
@@ -9,11 +10,11 @@ class WikipediaModule(BaseModule):
         super(WikipediaModule, self).__init__(*args)
 
     def give_a_summary(self):
-        self.assistant.say("What would you like to know about?")
+        self.assistant.say(_("encyclopedia.search.ask"))
         text = self.assistant.listen().decipher()
         text = text.strip().replace(" ", "%20")
         request = Request(
-            'https://en.wikipedia.org/w/api.php?'
+            'https://' + lang.get_code() + '.wikipedia.org/w/api.php?'
             'format=json&action=query&prop=extracts&exintro=&explaintext=&titles=' + text
         )
         try:
@@ -24,8 +25,16 @@ class WikipediaModule(BaseModule):
                 )
             )
             output = data["query"]["pages"]
-            final = output[list(output.keys())[0]]["extract"]
+
+            # check that the content of output contains a page or not
+            if list(output.keys())[0] is not '-1':
+                final = output[list(output.keys())[0]]["extract"]
+                return final
+            else:
+                self.assistant.say(_("encyclopedia.search.no_results"))
+                return None
+
             return final
 
         except URLError:
-            return "Unable to search your given query."
+            return _("error.encyclopedia.search")
